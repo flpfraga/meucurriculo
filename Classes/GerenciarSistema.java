@@ -5,6 +5,7 @@
  */
 package Classes;
 
+import Model.Curso;
 import java.util.Scanner;
 
 /**
