@@ -5,6 +5,8 @@
  */
 package Classes;
 
+
+import View.sistema.JFramePrincipal;
 import java.util.Scanner;
 
 /**
@@ -17,36 +19,8 @@ public class PainelPrincipal {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws Exception {
-        Scanner scanner = new Scanner(System.in);
-        int opcao = 0;
-        do {
-            try {
-                Menu.painelPrincipal();
-                opcao = scanner.nextInt();
+        JFramePrincipal principal = new JFramePrincipal();
+        principal.setVisible(true);
 
-                switch (opcao) {
-                    case 1:
-
-                        CadastrarCurriculo cadCurriculo = new CadastrarCurriculo();
-                        cadCurriculo.gerenciarDadosUsuario();
-                        break;
-                    case 2:
-                        break;
-                    case 3:
-                        GerenciarSistema gerSist = new GerenciarSistema();
-                        gerSist.gerenciarSistema();
-                        break;
-                   
-                    case 0:
-                        break;
-                    default:
-                        System.out.println("Opção inválida");
-                        break;
-                }
-            } catch (Exception e) {
-                System.out.println("Entrada de inválida" + e);
-            }
-        } while (opcao != 0);
     }
-
 }
