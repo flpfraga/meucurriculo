@@ -17,7 +17,6 @@ import View.usuario.JFrameLoginCadastro;
 import java.awt.Frame;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -47,7 +46,7 @@ public class ControllerUsuario extends DefaultController {
     public void novoCadastro(Frame frame) {
         jFrameLoginCadastro = (JFrameLoginCadastro) frame;
         if (getUsuarioDAO().jaExiste(usuario, this)) {
-            JOptionPane.showMessageDialog(null, "Usuário já cadastrado", "Erro!-MYCurrículo", 0);
+            JOptionPane.showMessageDialog(null, "Usuário já cadastrado", "Erro!", 0);
             jFrameLoginCadastro.setNullParametros();
         } else {
             getUsuarioDAO().persistir(usuario, this);
@@ -118,9 +117,6 @@ public class ControllerUsuario extends DefaultController {
         frame.setVisible(false);
         jFrameGerenciarUsuario.setVisible(true);
     }
-    public DefaultTableModel buscar(){
-        return usuarioDAO.buscar(usuario, this);
-    }
 
     public void setControllerEndereco(ControllerEndereco controllerEndereco) {
         this.controllerEndereco = controllerEndereco;
@@ -150,4 +146,5 @@ public class ControllerUsuario extends DefaultController {
     public void setUsuarioDAO(UsuarioDAO usuarioDAO) {
         this.usuarioDAO = usuarioDAO;
     }
+
 }

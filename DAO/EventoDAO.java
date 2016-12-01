@@ -39,18 +39,9 @@ public class EventoDAO extends DefaultDAO {
         }
     }
 
-    
-    public boolean excluir(Object object, DefaultController defaultController) {
-        evento = (Evento) object;
-        try{
-            ps = Persistencia.conexao().prepareStatement("DELETE FROM evento WHERE id = ?");
-            ps.setInt(1, evento.getId());
-            ps.execute();
-            return true;
-       } catch (SQLException e) {
-            defaultController.erroConexaoBD(e);
-        }
-        return false;
+    @Override
+    public void excluir(Object object, DefaultController defaultController) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     

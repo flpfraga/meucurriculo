@@ -5,10 +5,10 @@
  */
 package View.usuario;
 
-import Controller.ControllerCurso;
-import Controller.ControllerCursoUsuario;
+import Controller.ControllerAtividadeExtra;
 import Controller.ControllerEndereco;
 import Controller.ControllerEvento;
+import Controller.ControllerProfissao;
 import Controller.ControllerUsuario;
 import Model.Endereco;
 import Model.Evento;
@@ -21,10 +21,9 @@ public class JFrameGerenciarUsuario extends javax.swing.JFrame {
 
     ControllerUsuario controllerUsuario;
     ControllerEndereco controllerEndereco;
-    ControllerCursoUsuario controllerCursoUsuario;
-
+    ControllerProfissao controllerProfissao;
+    //ControllerAtividadeExtra controllerAtividadeExtra;
     boolean iniciou = false;
-
     public JFrameGerenciarUsuario() {
         initComponents();
     }
@@ -40,12 +39,12 @@ public class JFrameGerenciarUsuario extends javax.swing.JFrame {
 
         jInternalFrame1 = new javax.swing.JInternalFrame();
         jComboBoxPessoal = new javax.swing.JComboBox<>();
+        jComboBoxFormacao = new javax.swing.JComboBox<>();
         jComboBoxProfissao = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
         jButtonSair = new javax.swing.JButton();
         jButtonEvento = new javax.swing.JButton();
         jButtonAtividadeExtra = new javax.swing.JButton();
-        jButtonCurso = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -57,6 +56,8 @@ public class JFrameGerenciarUsuario extends javax.swing.JFrame {
                 jComboBoxPessoalActionPerformed(evt);
             }
         });
+
+        jComboBoxFormacao.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ensino Médio","Curso Técnico","Mestrado","Doutorado","PHD" }));
 
         jComboBoxProfissao.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Profissão Atual","Profissão Anterior" }));
         jComboBoxProfissao.addActionListener(new java.awt.event.ActionListener() {
@@ -83,11 +84,9 @@ public class JFrameGerenciarUsuario extends javax.swing.JFrame {
         });
 
         jButtonAtividadeExtra.setText("Atividade Extra");
-
-        jButtonCurso.setText("Cursos");
-        jButtonCurso.addActionListener(new java.awt.event.ActionListener() {
+        jButtonAtividadeExtra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonCursoActionPerformed(evt);
+                jButtonAtividadeExtraActionPerformed(evt);
             }
         });
 
@@ -97,19 +96,27 @@ public class JFrameGerenciarUsuario extends javax.swing.JFrame {
             jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jInternalFrame1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jComboBoxPessoal, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
-                .addGroup(jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButtonAtividadeExtra, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonEvento, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1)
-                    .addComponent(jButtonCurso, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jComboBoxProfissao, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(54, Short.MAX_VALUE))
+                .addComponent(jComboBoxPessoal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(141, 141, 141)
+                .addComponent(jComboBoxFormacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jInternalFrame1Layout.createSequentialGroup()
+                        .addGap(5, 5, 5)
+                        .addComponent(jLabel1)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jInternalFrame1Layout.createSequentialGroup()
+                        .addGap(142, 142, 142)
+                        .addComponent(jComboBoxProfissao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 142, Short.MAX_VALUE))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jInternalFrame1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButtonSair, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(25, 25, 25))
+            .addGroup(jInternalFrame1Layout.createSequentialGroup()
+                .addGap(47, 47, 47)
+                .addComponent(jButtonEvento)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButtonAtividadeExtra)
                 .addContainerGap())
         );
         jInternalFrame1Layout.setVerticalGroup(
@@ -120,16 +127,16 @@ public class JFrameGerenciarUsuario extends javax.swing.JFrame {
                         .addGap(5, 5, 5)
                         .addComponent(jLabel1))
                     .addGroup(jInternalFrame1Layout.createSequentialGroup()
-                        .addGap(47, 47, 47)
+                        .addGap(57, 57, 57)
                         .addGroup(jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jComboBoxPessoal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBoxProfissao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButtonAtividadeExtra, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(18, 18, 18)
-                .addComponent(jButtonEvento, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButtonCurso, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                            .addComponent(jComboBoxFormacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jComboBoxProfissao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
+                .addGroup(jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonAtividadeExtra)
+                    .addComponent(jButtonEvento))
+                .addGap(87, 87, 87)
                 .addComponent(jButtonSair)
                 .addContainerGap())
         );
@@ -142,26 +149,27 @@ public class JFrameGerenciarUsuario extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 11, Short.MAX_VALUE)
-                .addComponent(jInternalFrame1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jInternalFrame1)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jComboBoxPessoalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxPessoalActionPerformed
-
-        if (jComboBoxPessoal.getSelectedItem().equals("Dados Pessoais")) {
+        
+        if (jComboBoxPessoal.getSelectedItem().equals("Dados Pessoais")){
             controllerUsuario.mostrar(this);
-        } else if (jComboBoxPessoal.getSelectedItem().equals("Endereço")) {
+        }else if (jComboBoxPessoal.getSelectedItem().equals("Endereço")){
             controllerEndereco.setControllerUsuario(controllerUsuario);
             controllerEndereco.mostrar(this);
         }
     }//GEN-LAST:event_jComboBoxPessoalActionPerformed
 
     private void jComboBoxProfissaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxProfissaoActionPerformed
-        // TODO add your handling code here:
+       if (jComboBoxPessoal.getSelectedItem().equals("Profissão Atual")){
+           controllerProfissao.setControllerUsuario(controllerUsuario); 
+           controllerProfissao.incluir(this);
+       }
     }//GEN-LAST:event_jComboBoxProfissaoActionPerformed
 
     private void jButtonSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSairActionPerformed
@@ -177,24 +185,23 @@ public class JFrameGerenciarUsuario extends javax.swing.JFrame {
         controllerEvento.mostrar(this);
     }//GEN-LAST:event_jButtonEventoActionPerformed
 
-    private void jButtonCursoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCursoActionPerformed
-        controllerCursoUsuario = new ControllerCursoUsuario();
-        controllerCursoUsuario.getCursoUsuario().setIdUsuario(controllerUsuario.getUsuario().getId());
-        controllerCursoUsuario.mostrar(this);
-    }//GEN-LAST:event_jButtonCursoActionPerformed
+    private void jButtonAtividadeExtraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAtividadeExtraActionPerformed
+        ControllerAtividadeExtra controllerAtividadeExtra = new ControllerAtividadeExtra();
+        controllerAtividadeExtra.setControllerUsuario(controllerUsuario);
+        controllerAtividadeExtra.getAtividadeExtra().setIdUsuario(controllerUsuario.getUsuario().getId());
+        System.out.println(controllerUsuario.getUsuario().getId());
+        controllerAtividadeExtra.mostrar(this);
+    }//GEN-LAST:event_jButtonAtividadeExtraActionPerformed
 
-    public void setControllerUsuario(ControllerUsuario controllerUsuario) {
+    public void setControllerUsuario(ControllerUsuario controllerUsuario){
         this.controllerUsuario = controllerUsuario;
     }
-
-    public void setControllerEndereco(ControllerEndereco controllerEndereco) {
+    public void setControllerEndereco(ControllerEndereco controllerEndereco){
         this.controllerEndereco = controllerEndereco;
     }
-
-    public void setIdEndereco(int id) {
+    public void setIdEndereco(int id){
         controllerUsuario.getUsuario().setIdEndereco(id);
     }
-
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -230,9 +237,9 @@ public class JFrameGerenciarUsuario extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAtividadeExtra;
-    private javax.swing.JButton jButtonCurso;
     private javax.swing.JButton jButtonEvento;
     private javax.swing.JButton jButtonSair;
+    private javax.swing.JComboBox<String> jComboBoxFormacao;
     private javax.swing.JComboBox<String> jComboBoxPessoal;
     private javax.swing.JComboBox<String> jComboBoxProfissao;
     private javax.swing.JInternalFrame jInternalFrame1;

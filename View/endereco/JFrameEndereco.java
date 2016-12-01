@@ -57,7 +57,6 @@ public class JFrameEndereco extends javax.swing.JFrame {
         jButtonSalvar = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         jButtonVoltar = new javax.swing.JButton();
-        jButtonExcluir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -108,13 +107,6 @@ public class JFrameEndereco extends javax.swing.JFrame {
             }
         });
 
-        jButtonExcluir.setText("Excluir");
-        jButtonExcluir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonExcluirActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jInternalFramePreenherLayout = new javax.swing.GroupLayout(jInternalFramePreenher.getContentPane());
         jInternalFramePreenher.getContentPane().setLayout(jInternalFramePreenherLayout);
         jInternalFramePreenherLayout.setHorizontalGroup(
@@ -129,49 +121,46 @@ public class JFrameEndereco extends javax.swing.JFrame {
                     .addGroup(jInternalFramePreenherLayout.createSequentialGroup()
                         .addGroup(jInternalFramePreenherLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jInternalFramePreenherLayout.createSequentialGroup()
-                                .addGap(241, 241, 241)
-                                .addComponent(jLabel7))
-                            .addGroup(jInternalFramePreenherLayout.createSequentialGroup()
                                 .addGap(14, 14, 14)
+                                .addGroup(jInternalFramePreenherLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel1)
+                                    .addComponent(jLabel5))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(jInternalFramePreenherLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jButtonExcluir)
                                     .addGroup(jInternalFramePreenherLayout.createSequentialGroup()
-                                        .addGroup(jInternalFramePreenherLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(jLabel2)
-                                            .addComponent(jLabel1)
-                                            .addComponent(jLabel5))
+                                        .addComponent(jRadioButtonBrasil)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jRadioButtonPais)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jTextFieldPais, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jInternalFramePreenherLayout.createSequentialGroup()
+                                        .addComponent(jTextFieldRua, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(26, 26, 26)
+                                        .addComponent(jLabel3)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jTextFieldNum, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(10, 10, 10)
+                                        .addComponent(jLabel4)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jTextFieldComp, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jInternalFramePreenherLayout.createSequentialGroup()
+                                        .addGroup(jInternalFramePreenherLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                            .addGroup(jInternalFramePreenherLayout.createSequentialGroup()
+                                                .addComponent(jTextFieldCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(jLabel8))
+                                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jInternalFramePreenherLayout.createSequentialGroup()
+                                                .addComponent(jTextFieldBairro, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(jLabel6)))
+                                        .addGap(18, 18, 18)
                                         .addGroup(jInternalFramePreenherLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(jInternalFramePreenherLayout.createSequentialGroup()
-                                                .addComponent(jRadioButtonBrasil)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(jRadioButtonPais)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(jTextFieldPais, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(jInternalFramePreenherLayout.createSequentialGroup()
-                                                .addComponent(jTextFieldRua, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(26, 26, 26)
-                                                .addComponent(jLabel3)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(jTextFieldNum, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(10, 10, 10)
-                                                .addComponent(jLabel4)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(jTextFieldComp, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(jInternalFramePreenherLayout.createSequentialGroup()
-                                                .addGroup(jInternalFramePreenherLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                                    .addGroup(jInternalFramePreenherLayout.createSequentialGroup()
-                                                        .addComponent(jTextFieldCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                        .addComponent(jLabel8))
-                                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jInternalFramePreenherLayout.createSequentialGroup()
-                                                        .addComponent(jTextFieldBairro, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addGap(18, 18, 18)
-                                                        .addComponent(jLabel6)))
-                                                .addGap(18, 18, 18)
-                                                .addGroup(jInternalFramePreenherLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(jTextFieldCep, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(jTextFieldUf, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))))))))
+                                            .addComponent(jTextFieldCep, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jTextFieldUf, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                            .addGroup(jInternalFramePreenherLayout.createSequentialGroup()
+                                .addGap(241, 241, 241)
+                                .addComponent(jLabel7)))
                         .addGap(0, 71, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -212,9 +201,7 @@ public class JFrameEndereco extends javax.swing.JFrame {
                         .addContainerGap(27, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jInternalFramePreenherLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jInternalFramePreenherLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButtonVoltar)
-                            .addComponent(jButtonExcluir))
+                        .addComponent(jButtonVoltar)
                         .addContainerGap())))
         );
 
@@ -279,10 +266,6 @@ public class JFrameEndereco extends javax.swing.JFrame {
     private void jButtonVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVoltarActionPerformed
             controllerEndereco.mostrarPainelGerenciar(this);
     }//GEN-LAST:event_jButtonVoltarActionPerformed
-
-    private void jButtonExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExcluirActionPerformed
-        controllerEndereco.excluir(this);
-    }//GEN-LAST:event_jButtonExcluirActionPerformed
     public void setController(DefaultController defaultController) {
         this.controllerEndereco = (ControllerEndereco) defaultController;
     }
@@ -335,7 +318,6 @@ public class JFrameEndereco extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonExcluir;
     private javax.swing.JButton jButtonSalvar;
     private javax.swing.JButton jButtonVoltar;
     private javax.swing.JInternalFrame jInternalFramePreenher;

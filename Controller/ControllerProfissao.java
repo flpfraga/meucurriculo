@@ -7,12 +7,10 @@ package Controller;
 
 import DAO.ProfissaoDAO;
 import Model.Profissao;
-import Model.Profissao;
 import View.profissao.JFrameVisualizarProfissao;
 import View.profissao.JFrameCadastrarProfissao;
 import View.profissao.JFrameAlterarProfissao;
 import java.awt.Frame;
-import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 
 
@@ -54,9 +52,7 @@ public class ControllerProfissao extends DefaultController{
         profissaoDAO.persistir(profissao, this);
         jFrameVisualizarProfissao.setVisible(true);
     }
-    public Profissao buscarPorId(int indice){
-        return profissaoDAO.buscarPorId(indice);
-    }
+
     
     
     public ControllerUsuario getControllerUsuario() {
@@ -98,4 +94,5 @@ public class ControllerProfissao extends DefaultController{
     public void voltarPainelGerenciarUsuario (Frame frame){
         controllerUsuario.mostrarPainelGerenciar(frame);
     }
+    
 }

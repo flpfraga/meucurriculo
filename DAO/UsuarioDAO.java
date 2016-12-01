@@ -5,16 +5,11 @@
  */
 package DAO;
 
-import Controller.ControllerCurso;
-import Controller.ControllerCursoUsuario;
-import Controller.ControllerProfissao;
-import Controller.ControllerProfissaoUsuario;
 import Controller.ControllerUsuario;
 import Controller.DefaultController;
 import Model.Usuario;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -24,11 +19,9 @@ import javax.swing.table.DefaultTableModel;
 public class UsuarioDAO extends DefaultDAO {
 
     Usuario usuario;
-
-    public UsuarioDAO() {
+    public UsuarioDAO(){
         usuario = new Usuario();
     }
-
     public void persistir(Object object, DefaultController defaultController) {
         usuario = (Usuario) object;
         try {
@@ -43,17 +36,17 @@ public class UsuarioDAO extends DefaultDAO {
         }
     }
 
-    public boolean excluir(Object object, DefaultController defaultController) {
+    public void excluir(Object object, DefaultController defaultController) {
         usuario = (Usuario) object;
         try {
             ps = Persistencia.conexao().prepareStatement("DELETE from usuario WHERE cpf = ?");
             ps.setString(1, usuario.getCpf());
             ps.executeUpdate();
-            return true;
+            System.out.println("Cadastro excluido com sucesso");
         } catch (SQLException e) {
             defaultController.erroConexaoBD(e);
         }
-        return false;
+
     }
 
     public void alterar(Object object, DefaultController defaultController) {
@@ -77,6 +70,7 @@ public class UsuarioDAO extends DefaultDAO {
         }
     }
 
+
     public boolean jaExiste(Object object, DefaultController defaultController) {
         usuario = (Usuario) object;
         try {
@@ -93,39 +87,6 @@ public class UsuarioDAO extends DefaultDAO {
             defaultController.erroConexaoBD(e);
         }
         return false;
-    }
-
-    public DefaultTableModel buscar(Usuario usuario, DefaultController defaultController) {
-        DefaultTableModel dtm = new DefaultTableModel(new String[]{"Nome", "Curso", "Profissão"}, 0);
-        try {
-            ps = Persistencia.conexao().prepareStatement("SELECT * FROM usuario WHERE nome = ?");
-            ps.setString(1, usuario.getNome());
-            ResultSet resultSet = null;
-            resultSet = ps.executeQuery();
-            while (resultSet.next()) {
-                ControllerCursoUsuario controllerCursoUsuario = new ControllerCursoUsuario();
-                ControllerProfissaoUsuario controllerProfissaoUsuario = new ControllerProfissaoUsuario();
-                ArrayList<String> curso = controllerCursoUsuario.busca(resultSet.getInt("id"), defaultController);
-                ArrayList<String> profissao = controllerProfissaoUsuario.busca(resultSet.getInt("id"), defaultController);
-                int tam1 = curso.size();
-                int tam2 = profissao.size();
-                while (tam1 > 0 || tam2 > 0) {
-                    String[] aux = new String[3];
-                    aux[0] = resultSet.getString("nome");
-                    if (tam1 > 0) {
-                        aux[1] = curso.get(tam1);
-                        tam1--;
-                    }
-                    if (tam2 > 0) {
-                        aux[2] = curso.get(tam2);
-                        tam2--;
-                    }
-                }
-            }
-        } catch (SQLException e) {
-            defaultController.erroConexaoBD(e);
-        }
-        return dtm;
     }
 
     public boolean verificaCadastro(Usuario usuario, ControllerUsuario controllerUsuario) {
@@ -145,8 +106,7 @@ public class UsuarioDAO extends DefaultDAO {
         }
         return false;
     }
-
-    public void altearCpf(Usuario usuario, DefaultController defaultController) {
+    public void altearCpf(Usuario usuario, DefaultController defaultController){
         try {
             ps = Persistencia.conexao().prepareStatement("UPDATE usuario set cpf = ? WHERE id = ?");
             ps.setString(1, usuario.getCpf());
@@ -157,7 +117,6 @@ public class UsuarioDAO extends DefaultDAO {
             defaultController.erroConexaoBD(e);
         }
     }
-
     public Usuario set(Object object, DefaultController defaultController) {
         usuario = (Usuario) object;
         try {

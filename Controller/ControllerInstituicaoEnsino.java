@@ -7,13 +7,11 @@ package Controller;
 
 import DAO.InstituicaoEnsinoDAO;
 import Model.InstituicaoEnsino;
-import View.InstituicaoEnsino.JFrameAlterarInstituicao;
 import View.InstituicaoEnsino.JFrameCadastrarInstituicao;
-
+import View.InstituicaoEnsino.JFrameMostraInstituicoes;
 import View.gerenciamento.JFramePainelGerenciamento;
 import java.awt.Frame;
 import javax.swing.JOptionPane;
-import javax.swing.UIManager;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -25,11 +23,10 @@ public class ControllerInstituicaoEnsino extends DefaultController {
     private InstituicaoEnsino instituicaoEnsino;
     private InstituicaoEnsinoDAO instituicaoEnsinoDAO;
     private JFramePainelGerenciamento jFramePainelGerenciamento;
-
-    private JFrameCadastrarInstituicao jFrameCadastrarInstituicao;
+    private JFrameMostraInstituicoes jFrameMostraInstituicoes;
+    private JFrameCadastrarInstituicao jFrameCadastrarInstituicao; 
     private ControllerCurso controllerCurso;
-    private JFrameAlterarInstituicao jFrameAlterarInstituicao;
-
+    
     public ControllerInstituicaoEnsino() {
         instituicaoEnsino = new InstituicaoEnsino();
         instituicaoEnsinoDAO = new InstituicaoEnsinoDAO();
@@ -47,69 +44,20 @@ public class ControllerInstituicaoEnsino extends DefaultController {
     }
 
     public void mostrar(Frame frame) {
-
+        jFrameMostraInstituicoes = new JFrameMostraInstituicoes();
+        jFrameMostraInstituicoes.setjTableIE(getInstituicaoEnsinoDAO().mostrar(getInstituicaoEnsino(), this));
+        jFrameMostraInstituicoes.setVisible(true);
     }
 
     public void persistir(Frame frame) {
         if (!instituicaoEnsinoDAO.jaExiste(instituicaoEnsino, this)) {
             frame.setVisible(false);
             getInstituicaoEnsinoDAO().persistir(getInstituicaoEnsino(), this);
-            instituicaoEnsino = (InstituicaoEnsino) instituicaoEnsinoDAO.set(instituicaoEnsino, this);
             controllerCurso.getjFrameCadastrarCurso().setControllerInstituicaoEnsino(this);
-            controllerCurso.getjFrameCadastrarCurso().posCadastroIE();
             controllerCurso.getjFrameCadastrarCurso().setEnabled(true);
         } else {
             JOptionPane.showMessageDialog(null, "Instituição já cadastrada", "Erro!", 0);
         }
-    }
-    public void excluir(Frame frame) {
-        frame.setVisible(false);
-        if (instituicaoEnsinoDAO.excluir(instituicaoEnsino, this)) {
-            JOptionPane.showMessageDialog(null, "Excluido com sucesso!", "MYCurrículo", 0);
-        }
-        controllerCurso.getjFrameCadastrarCurso().setControllerInstituicaoEnsino(this);
-        controllerCurso.getjFrameCadastrarCurso().setEnabled(true);
-    }
-    public void selecionar(Frame frame) {
-        controllerCurso.getjFrameAlterarCurso().setControllerInstituicaoEnsino(this);
-        controllerCurso.getjFrameAlterarCurso().posCadastroIE();
-        controllerCurso.getjFrameAlterarCurso().setEnabled(true);
-    }
-
-    public void selecionarAlterar(Frame frame) {
-        UIManager.put("OptionPane.yesButtonText", "Selecionar");
-        UIManager.put("OptionPane.noButtonText", "Alterar");
-        int opcao = JOptionPane.showConfirmDialog(null, "Selecione o que deseja fazer", "MYCurrículo", 0);
-        instituicaoEnsino = (InstituicaoEnsino) instituicaoEnsinoDAO.set(instituicaoEnsino, this);
-        if (opcao == 0) {
-            controllerCurso.getjFrameCadastrarCurso().setControllerInstituicaoEnsino(this);
-            controllerCurso.getjFrameCadastrarCurso().posCadastroIE();
-            controllerCurso.getjFrameCadastrarCurso().setEnabled(true);
-        } else if (opcao == 1) {
-            frame.setEnabled(false);
-            jFrameAlterarInstituicao = new JFrameAlterarInstituicao();
-            jFrameAlterarInstituicao.setControllerInstituicaoEnsino(this);
-            jFrameAlterarInstituicao.setParametro();
-            jFrameAlterarInstituicao.setVisible(true);
-        }
-    }
-
-    public void set() {
-        instituicaoEnsino = (InstituicaoEnsino) instituicaoEnsinoDAO.set(instituicaoEnsino, this);
-    }
-
-    public void alterar(Frame frame) {
-        frame.setVisible(false);
-        instituicaoEnsinoDAO.alterar(instituicaoEnsino, controllerCurso);
-        controllerCurso.getjFrameCadastrarCurso().setControllerInstituicaoEnsino(this);
-        controllerCurso.getjFrameCadastrarCurso().posCadastroIE();
-        controllerCurso.getjFrameCadastrarCurso().setEnabled(true);
-
-    }
-
-    public void voltar(Frame frame) {
-        frame.setVisible(false);
-        controllerCurso.getjFrameCadastrarCurso().setEnabled(true);
     }
 
     public InstituicaoEnsino getIntituicaoEnsino() {

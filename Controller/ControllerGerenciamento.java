@@ -27,9 +27,9 @@ public class ControllerGerenciamento extends DefaultController{
     
     public void painelLogin (Frame frame){
         frame.setVisible(false);
-        setjFrameLoginGerenciamento(new JFrameLoginGerenciamento());
-        getjFrameLoginGerenciamento().setControllerGerenciamento(this);
-        getjFrameLoginGerenciamento().setVisible(true);
+        jFrameLoginGerenciamento = new JFrameLoginGerenciamento();
+        jFrameLoginGerenciamento.setControllerGerenciamento(this);
+        jFrameLoginGerenciamento.setVisible(true);
     }
     
     public void setGerente(Gerente gerente){
@@ -37,11 +37,11 @@ public class ControllerGerenciamento extends DefaultController{
     }
     
     public void login (Frame frame){
-         if (getGerenteDAO().verificaCadastro(getGerente(), this)){
+         if (gerenteDAO.verificaCadastro(gerente, this)){
              frame.setVisible(false);
-             setjFramePainelGerenciamento(new JFramePainelGerenciamento());
-             getjFramePainelGerenciamento().setControllerGerenciamento(this);
-             getjFramePainelGerenciamento().setVisible(true);
+             jFramePainelGerenciamento = new JFramePainelGerenciamento();
+             jFramePainelGerenciamento.setControllerGerenciamento(this);
+             jFramePainelGerenciamento.setVisible(true);
          } else {
             JOptionPane.showMessageDialog(null, "Cadastro não encontrado", "Erro!-MYCurrículo", 0);
         }
@@ -54,36 +54,9 @@ public class ControllerGerenciamento extends DefaultController{
         frame.setVisible(false);
     }
 
-    
+    @Override
     public void persistir(Frame frame) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
-    public Gerente getGerente() {
-        return gerente;
-    }
-
-    public GerenteDAO getGerenteDAO() {
-        return gerenteDAO;
-    }
-
-    public void setGerenteDAO(GerenteDAO gerenteDAO) {
-        this.gerenteDAO = gerenteDAO;
-    }
-
-    public JFrameLoginGerenciamento getjFrameLoginGerenciamento() {
-        return jFrameLoginGerenciamento;
-    }
-
-    public void setjFrameLoginGerenciamento(JFrameLoginGerenciamento jFrameLoginGerenciamento) {
-        this.jFrameLoginGerenciamento = jFrameLoginGerenciamento;
-    }
-
-    public JFramePainelGerenciamento getjFramePainelGerenciamento() {
-        return jFramePainelGerenciamento;
-    }
-
-    public void setjFramePainelGerenciamento(JFramePainelGerenciamento jFramePainelGerenciamento) {
-        this.jFramePainelGerenciamento = jFramePainelGerenciamento;
-    }
+    
 }

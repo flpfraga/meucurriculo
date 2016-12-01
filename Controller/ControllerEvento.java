@@ -19,6 +19,7 @@ import javax.swing.table.DefaultTableModel;
  * @author Felipe Fraga
  */
 public class ControllerEvento extends DefaultController {
+    
     private ControllerUsuario controllerUsuario;
     private Evento evento;
     private JFrameVisualizarEventos jFrameVisualizarEventos;
@@ -76,10 +77,6 @@ public class ControllerEvento extends DefaultController {
         frame.setVisible(false);
         eventoDAO.persistir(evento, this);
         jFrameVisualizarEventos.setVisible(true);
-    }
-    
-    public void excluir (Frame frame){
-        
     }
     public void voltarPainelEvento(Frame frame){
         frame.setVisible(false);

@@ -2,9 +2,6 @@
 package DAO;
 
 import Controller.DefaultController;
-import Model.Curso;
-import Model.Evento;
-import Model.Profissao;
 import Model.Profissao;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -17,7 +14,7 @@ public class ProfissaoDAO extends DefaultDAO {
     public void persistir(Object object, DefaultController defaultController) {
         profissao = (Profissao) object;
         try {
-            ps = Persistencia.conexao().prepareStatement("INSERT into profissao (id, tipo) values (?, ?)");
+            ps = Classes.Persistencia.conexao().prepareStatement("INSERT into profissao (id, tipo) values (?, ?)");
             ps.setInt(1, profissao.getId());
             ps.setString(2, profissao.getTipo());
             ps.executeUpdate();
@@ -27,18 +24,9 @@ public class ProfissaoDAO extends DefaultDAO {
         }
     }
 
-    
-    public boolean excluir(Object object, DefaultController defaultController) {
-        profissao = (Profissao) object;
-        try{
-            ps = Persistencia.conexao().prepareStatement("DELETE FROM profissao WHERE id = ?");
-            ps.setInt(1, profissao.getId());
-            ps.execute();
-            return true;
-       } catch (SQLException e) {
-            defaultController.erroConexaoBD(e);
-        }
-        return false;
+    @Override
+    public void excluir(Object object, DefaultController defaultController) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     
@@ -73,21 +61,7 @@ public class ProfissaoDAO extends DefaultDAO {
         return false;
     }
 
-    public Profissao buscarPorId(int indice){
-        Profissao profissao = new Profissao();
-        try {
-            ps = Persistencia.conexao().prepareStatement("SELECT * from curso WHERE id = ?");
-            ps.setInt(1, indice);
-            ResultSet resultSet = ps.executeQuery();
-            while (resultSet.next()) {
-                profissao.setTipo(resultSet.getString("tipo"));
-                
-            }
-        } catch (SQLException e) {
-            defaultController.erroConexaoBD(e);
-        }
-        return profissao;
-    }
+    
     public Object set(Object object, DefaultController defaultController) {
         profissao = (Profissao) object;
         try {

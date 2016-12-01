@@ -18,7 +18,6 @@ public class JFramePrincipal extends javax.swing.JFrame {
     private ControllerSistema controllerSistema;
     private ControllerUsuario controllerUsuario;
     private ControllerGerenciamento controllerGerenciamento;
-    
     public JFramePrincipal() {
         initComponents();
     }
@@ -68,11 +67,6 @@ public class JFramePrincipal extends javax.swing.JFrame {
         });
 
         jButtonBuscar.setText("Buscar Currículos Cadastrados");
-        jButtonBuscar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonBuscarActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jInternalFrame1Layout = new javax.swing.GroupLayout(jInternalFrame1.getContentPane());
         jInternalFrame1.getContentPane().setLayout(jInternalFrame1Layout);
@@ -104,7 +98,7 @@ public class JFramePrincipal extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addGap(20, 20, 20)
                 .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
                 .addComponent(jButtonCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButtonGerenciar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -128,19 +122,14 @@ public class JFramePrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastrarActionPerformed
-        controllerUsuario = new ControllerUsuario();
+        setControllerUsuario(new ControllerUsuario ());
         getControllerUsuario().painelLogin(this);
     }//GEN-LAST:event_jButtonCadastrarActionPerformed
 
     private void jButtonGerenciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGerenciarActionPerformed
-        setControllerGerenciamento(new ControllerGerenciamento());
-        getControllerGerenciamento().painelLogin(this);
+        controllerGerenciamento = new ControllerGerenciamento();
+        controllerGerenciamento.painelLogin(this);
     }//GEN-LAST:event_jButtonGerenciarActionPerformed
-
-    private void jButtonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarActionPerformed
-        controllerSistema.buscar(this);
-        
-    }//GEN-LAST:event_jButtonBuscarActionPerformed
 
     public void setJInternalFrame1 (javax.swing.JInternalFrame j){
         jInternalFrame1 = j;
@@ -201,13 +190,5 @@ public class JFramePrincipal extends javax.swing.JFrame {
 
     public void setControllerUsuario(ControllerUsuario controllerUsuario) {
         this.controllerUsuario = controllerUsuario;
-    }
-
-    public ControllerGerenciamento getControllerGerenciamento() {
-        return controllerGerenciamento;
-    }
-
-    public void setControllerGerenciamento(ControllerGerenciamento controllerGerenciamento) {
-        this.controllerGerenciamento = controllerGerenciamento;
     }
 }

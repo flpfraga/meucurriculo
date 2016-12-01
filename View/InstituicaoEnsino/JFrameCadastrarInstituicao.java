@@ -38,7 +38,7 @@ public class JFrameCadastrarInstituicao extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jTextFieldNome = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
-        jButtonVoltar = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jTextFieldLocal = new javax.swing.JTextField();
 
@@ -57,12 +57,7 @@ public class JFrameCadastrarInstituicao extends javax.swing.JFrame {
             }
         });
 
-        jButtonVoltar.setText("Voltar");
-        jButtonVoltar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonVoltarActionPerformed(evt);
-            }
-        });
+        jButton2.setText("Voltar");
 
         jLabel3.setText("Local:");
 
@@ -77,7 +72,7 @@ public class JFrameCadastrarInstituicao extends javax.swing.JFrame {
                         .addComponent(jLabel1)
                         .addGap(181, 181, 181))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jInternalFrame1Layout.createSequentialGroup()
-                        .addComponent(jButtonVoltar)
+                        .addComponent(jButton2)
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jInternalFrame1Layout.createSequentialGroup()
                         .addGroup(jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -108,8 +103,8 @@ public class JFrameCadastrarInstituicao extends javax.swing.JFrame {
                     .addComponent(jTextFieldLocal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(31, 31, 31)
                 .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 19, Short.MAX_VALUE)
-                .addComponent(jButtonVoltar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 15, Short.MAX_VALUE)
+                .addComponent(jButton2)
                 .addContainerGap())
         );
 
@@ -138,10 +133,6 @@ public class JFrameCadastrarInstituicao extends javax.swing.JFrame {
             controllerInstituicaoEnsino.persistir(this);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jButtonVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVoltarActionPerformed
-        controllerInstituicaoEnsino.voltar(this);
-    }//GEN-LAST:event_jButtonVoltarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -180,7 +171,7 @@ public class JFrameCadastrarInstituicao extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButtonVoltar;
+    private javax.swing.JButton jButton2;
     private javax.swing.JInternalFrame jInternalFrame1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

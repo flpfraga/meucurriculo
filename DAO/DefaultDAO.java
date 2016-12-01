@@ -19,7 +19,7 @@ public abstract class DefaultDAO {
     public PreparedStatement ps = null;
     public abstract void persistir(Object object, DefaultController defaultController);
     
-    public abstract boolean excluir(Object object, DefaultController defaultController);
+    public abstract void excluir(Object object, DefaultController defaultController);
     public abstract void alterar(Object object, DefaultController defaultController);
     public abstract DefaultTableModel mostrar(Object object, DefaultController defaultController);
     public abstract boolean jaExiste(Object object, DefaultController defaultController);

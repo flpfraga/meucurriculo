@@ -96,8 +96,7 @@
                           <EmptySpace min="0" pref="19" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
-                          <Component id="jButtonExcluir" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           <Component id="jButtonVoltar" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -146,7 +145,7 @@
                                   <Component id="jLabel9" min="-2" pref="14" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace pref="37" max="32767" attributes="0"/>
+                          <EmptySpace pref="33" max="32767" attributes="0"/>
                           <Component id="jButtonSalvar" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
                       </Group>
@@ -156,10 +155,7 @@
                               <Component id="jTextFieldDuracao" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="32767" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jButtonVoltar" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jButtonExcluir" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="jButtonVoltar" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -242,11 +238,6 @@
               <Font name="Tahoma" size="9" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="se tiver apresentado"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JButton" name="jButtonExcluir">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Excluir"/>
           </Properties>
         </Component>
       </SubComponents>

@@ -8,7 +8,6 @@ package DAO;
 import Controller.ControllerEndereco;
 import Controller.DefaultController;
 import Model.Endereco;
-import Model.Evento;
 import Model.Usuario;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -64,17 +63,8 @@ public class EnderecoDAO extends DefaultDAO {
         return endereco.getId();
     }
 
-    public boolean excluir(Object object, DefaultController defaultController) {
-        endereco = (Endereco) object;
-        try {
-            ps = Persistencia.conexao().prepareStatement("DELETE FROM endereco WHERE id = ?");
-            ps.setInt(1, endereco.getId());
-            ps.execute();
-            return true;
-        } catch (SQLException e) {
-            defaultController.erroConexaoBD(e);
-        }
-        return false;
+    public void excluir(Object object, DefaultController defaultController) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     public void alterar(Object object, DefaultController defaultController) {
@@ -136,7 +126,7 @@ public class EnderecoDAO extends DefaultDAO {
         }
         return false;
     }
-
+    
     public Endereco set(Object object, DefaultController defaultController) {
         endereco = (Endereco) object;
         try {

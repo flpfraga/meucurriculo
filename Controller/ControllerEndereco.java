@@ -51,15 +51,6 @@ public class ControllerEndereco  extends DefaultController{
         jFrameGerenciarUsuario.setControllerEndereco(this);
         jFrameGerenciarUsuario.setVisible(true);
     }
-    
-    public void excluir(Frame frame) {
-        frame.setVisible(false);
-        if (enderecoDAO.excluir(endereco, this)) {
-            JOptionPane.showMessageDialog(null, "Excluido com sucesso!", "MYCurrículo", 0);
-        }
-        jFrameGerenciarUsuario.setVisible(true);
-        
-    }
     public void mostrarPainelGerenciar(Frame frame){
         controllerUsuario.mostrarPainelGerenciar(frame);
     }

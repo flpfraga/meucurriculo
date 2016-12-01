@@ -5,9 +5,7 @@
  */
 package DAO;
 
-import Controller.ControllerCurso;
 import Controller.DefaultController;
-import Model.Endereco;
 import Model.InstituicaoEnsino;
 import java.awt.Frame;
 import java.sql.ResultSet;
@@ -40,52 +38,25 @@ public class InstituicaoEnsinoDAO extends DefaultDAO {
     }
 
     
-    public boolean excluir(Object object, DefaultController defaultController) {
-        instituicaoEnsino = (InstituicaoEnsino) object;
-        try {
-            ps = Persistencia.conexao().prepareStatement("DELETE FROM instituicaoEnsino WHERE id = ?");
-            ps.setInt(1, instituicaoEnsino.getId());
-            ps.execute();
-            ControllerCurso controllerCurso = new ControllerCurso();
-            controllerCurso.excluirVarios(instituicaoEnsino.getId());
-            return true;
-        } catch (SQLException e) {
-            defaultController.erroConexaoBD(e);
-        }
-        return false;
+    public void excluir(Object object, DefaultController defaultController) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     
     public void alterar(Object object, DefaultController defaultController) {
-        instituicaoEnsino = (InstituicaoEnsino) object;
-        try{
-            ps = Persistencia.conexao().prepareStatement("UPDATE instituicaoensino set nome = ?, local = ?, tipoMedio = ?, tipoTecnico = ?, tipoSuperior = ?, tipoMestrado = ?, tipoDoutorado = ?, tipoPhd = ? WHERE id = ?");
-            ps.setString(1, instituicaoEnsino.getNome());
-            ps.setString(2, instituicaoEnsino.getLocal());
-            ps.setBoolean(3, instituicaoEnsino.isTipoMedio());
-            ps.setBoolean(4, instituicaoEnsino.isTipoTecnico());
-            ps.setBoolean(5, instituicaoEnsino.isTipoSuperior());
-            ps.setBoolean(6, instituicaoEnsino.isTipoMestrado());
-            ps.setBoolean(7, instituicaoEnsino.isTipoDoutorado());
-            ps.setBoolean(8, instituicaoEnsino.isTipoPhd());
-            ps.setInt(9, instituicaoEnsino.getId());
-            ps.executeUpdate();
-            ps.close();
-        }catch(SQLException e){
-            defaultController.erroConexaoBD(e);
-        }
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     public DefaultTableModel mostrar(Object object, DefaultController defaultController) {
         instituicaoEnsino = (InstituicaoEnsino) object;
-        DefaultTableModel dtm = new DefaultTableModel(new String[]{"Nome", "Local"}, 0);
+        DefaultTableModel dtm = new DefaultTableModel(new String[]{"Nome", "Tipo"}, 0);
         try {
             ps = Persistencia.conexao().prepareStatement("SELECT * FROM instituicaoensino WHERE nome like ? and tipo"+tipo+" = ?");
             ps.setString(1, instituicaoEnsino.getNome() + "%");
             ps.setBoolean(2, true);
             ResultSet resultSet = ps.executeQuery();
             while (resultSet.next()) {
-                dtm.addRow(new Object[]{resultSet.getString("nome"), resultSet.getString("local")});
+                dtm.addRow(new Object[]{resultSet.getString("nome"), resultSet.getString("tipo"+tipo)});
             }
         } catch (SQLException e) {
             defaultController.erroConexaoBD(e);
@@ -130,28 +101,10 @@ public class InstituicaoEnsinoDAO extends DefaultDAO {
         }
         return false;
     }
+
+    @Override
     public Object set(Object object, DefaultController defaultController) {
-        instituicaoEnsino = (InstituicaoEnsino) object;
-        try {
-            ps = Persistencia.conexao().prepareStatement("SELECT * FROM instituicaoensino WHERE nome like ? and tipo"+tipo+" = ?");
-            ps.setString(1, instituicaoEnsino.getNome() + "%");
-            ps.setBoolean(2, true);
-            ResultSet resultSet = ps.executeQuery();
-            while (resultSet.next()) {
-                instituicaoEnsino.setId(resultSet.getInt("id"));
-                instituicaoEnsino.setNome(resultSet.getString("nome"));
-                instituicaoEnsino.setLocal(resultSet.getString("local"));
-                instituicaoEnsino.setTipoMedio(resultSet.getBoolean("tipoMedio"));
-                instituicaoEnsino.setTipoTecnico(resultSet.getBoolean("tipoTecnico"));
-                instituicaoEnsino.setTipoSuperior(resultSet.getBoolean("tipoSuperior"));
-                instituicaoEnsino.setTipoMestrado(resultSet.getBoolean("tipoMestrado"));
-                instituicaoEnsino.setTipoDoutorado(resultSet.getBoolean("tipoDoutorado"));
-                instituicaoEnsino.setTipoPhd(resultSet.getBoolean("tipoPhd"));
-            }
-        } catch (SQLException e) {
-            defaultController.erroConexaoBD(e);
-        }
-        return instituicaoEnsino;
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     public String getTipo() {

@@ -5,15 +5,11 @@
  */
 package DAO;
 
-import Controller.ControllerCurso;
-import Controller.ControllerProfissao;
 import Model.ProfissaoUsuario;
 import Controller.DefaultController;
 import Model.Evento;
-import Model.ProfissaoUsuario;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -44,18 +40,9 @@ public class ProfissaoUsuarioDAO extends DefaultDAO{
         }
     }
 
-    
-    public boolean excluir(Object object, DefaultController defaultController) {
-        profissaoUsuario = (ProfissaoUsuario) object;
-        try{
-            ps = Persistencia.conexao().prepareStatement("DELETE FROM profissaoUsuario WHERE id = ?");
-            ps.setInt(1, profissaoUsuario.getId());
-            ps.execute();
-            return true;
-       } catch (SQLException e) {
-            defaultController.erroConexaoBD(e);
-        }
-        return false;
+    @Override
+    public void excluir(Object object, DefaultController defaultController) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
@@ -116,24 +103,6 @@ public class ProfissaoUsuarioDAO extends DefaultDAO{
     @Override
     public Object set(Object object, DefaultController defaultController) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
-    public ArrayList busca (int indice, DefaultController defaultController){
-         ArrayList<String> lista = new ArrayList<>();
-        try {
-            ps = Persistencia.conexao().prepareStatement("SELECT * FROM cursousuario WHERE idUsuario = ?");
-            ps.setInt(1, indice);
-            ResultSet resultSet = null;
-            resultSet = ps.executeQuery();
-            while (resultSet.next()) {
-                ControllerProfissao controllerProfissao = new ControllerProfissao();
-                lista.add(controllerProfissao.buscarPorId(resultSet.getInt("idCurso")).getTipo());
-            }
-
-        } catch (SQLException e) {
-            defaultController.erroConexaoBD(e);
-        }
-        return lista;
     }
     
 }

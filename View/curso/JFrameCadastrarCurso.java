@@ -48,7 +48,6 @@ public class JFrameCadastrarCurso extends javax.swing.JFrame {
         jLabelErro1 = new javax.swing.JLabel();
         jLabelErro = new javax.swing.JLabel();
         jLabelErro2 = new javax.swing.JLabel();
-        jButtonVoltar = new javax.swing.JButton();
         jPanelSecundario = new javax.swing.JPanel();
         jButtonNovaInstituicao = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -101,11 +100,6 @@ public class JFrameCadastrarCurso extends javax.swing.JFrame {
 
         jButtonCadastrarCurso.setVisible(false);
         jButtonCadastrarCurso.setText("Cadastrar");
-        jButtonCadastrarCurso.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonCadastrarCursoActionPerformed(evt);
-            }
-        });
 
         jLabelErro1.setForeground(new java.awt.Color(255, 0, 0));
         jLabelErro1.setText("*");
@@ -120,13 +114,6 @@ public class JFrameCadastrarCurso extends javax.swing.JFrame {
         jLabelErro2.setText("*");
         jLabelErro2.setVisible(false);
 
-        jButtonVoltar.setText("Voltar");
-        jButtonVoltar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonVoltarActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jInternalFrame2Layout = new javax.swing.GroupLayout(jInternalFrame2.getContentPane());
         jInternalFrame2.getContentPane().setLayout(jInternalFrame2Layout);
         jInternalFrame2Layout.setHorizontalGroup(
@@ -134,39 +121,34 @@ public class JFrameCadastrarCurso extends javax.swing.JFrame {
             .addGroup(jInternalFrame2Layout.createSequentialGroup()
                 .addGroup(jInternalFrame2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jInternalFrame2Layout.createSequentialGroup()
+                        .addGap(263, 263, 263)
+                        .addComponent(jLabel1))
+                    .addGroup(jInternalFrame2Layout.createSequentialGroup()
+                        .addGap(231, 231, 231)
+                        .addComponent(jButtonCadastrarCurso))
+                    .addGroup(jInternalFrame2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel2)
+                        .addGap(18, 18, 18)
+                        .addComponent(jTextFieldNome, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel3)
+                        .addGap(18, 18, 18)
+                        .addComponent(jComboBoxTIpoCurso, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabelErro1))
+                    .addGroup(jInternalFrame2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel4)
+                        .addGap(18, 18, 18)
+                        .addComponent(jTextFieldNomeInstituicao, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(57, 57, 57)
+                        .addComponent(jButtonPesquisar))
+                    .addGroup(jInternalFrame2Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabelErro2)
                         .addGap(18, 18, 18)
-                        .addComponent(jLabelErro)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButtonVoltar))
-                    .addGroup(jInternalFrame2Layout.createSequentialGroup()
-                        .addGroup(jInternalFrame2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jInternalFrame2Layout.createSequentialGroup()
-                                .addGap(263, 263, 263)
-                                .addComponent(jLabel1))
-                            .addGroup(jInternalFrame2Layout.createSequentialGroup()
-                                .addGap(231, 231, 231)
-                                .addComponent(jButtonCadastrarCurso))
-                            .addGroup(jInternalFrame2Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jLabel2)
-                                .addGap(18, 18, 18)
-                                .addComponent(jTextFieldNome, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel3)
-                                .addGap(18, 18, 18)
-                                .addComponent(jComboBoxTIpoCurso, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabelErro1))
-                            .addGroup(jInternalFrame2Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jLabel4)
-                                .addGap(18, 18, 18)
-                                .addComponent(jTextFieldNomeInstituicao, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(57, 57, 57)
-                                .addComponent(jButtonPesquisar)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addComponent(jLabelErro)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jInternalFrame2Layout.setVerticalGroup(
@@ -188,11 +170,10 @@ public class JFrameCadastrarCurso extends javax.swing.JFrame {
                         .addComponent(jButtonPesquisar)))
                 .addGap(32, 32, 32)
                 .addComponent(jButtonCadastrarCurso)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 83, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 35, Short.MAX_VALUE)
                 .addGroup(jInternalFrame2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelErro2)
-                    .addComponent(jLabelErro)
-                    .addComponent(jButtonVoltar))
+                    .addComponent(jLabelErro))
                 .addContainerGap())
         );
 
@@ -219,7 +200,7 @@ public class JFrameCadastrarCurso extends javax.swing.JFrame {
                 {null, null}
             },
             new String [] {
-                "Nome", "Local"
+                "Nome", "Tipo"
             }
         ) {
             Class[] types = new Class [] {
@@ -228,11 +209,6 @@ public class JFrameCadastrarCurso extends javax.swing.JFrame {
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
-            }
-        });
-        jTableInsituicao.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTableInsituicaoMouseClicked(evt);
             }
         });
         jScrollPane1.setViewportView(jTableInsituicao);
@@ -245,11 +221,11 @@ public class JFrameCadastrarCurso extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanelSecundarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelSecundarioLayout.createSequentialGroup()
-                        .addComponent(jButtonNovaInstituicao)
-                        .addGap(186, 186, 186))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(122, 122, 122))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelSecundarioLayout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 511, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(31, 31, 31)))
+                        .addComponent(jButtonNovaInstituicao)
+                        .addGap(186, 186, 186)))
                 .addComponent(jScrollBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanelSecundarioLayout.setVerticalGroup(
@@ -276,7 +252,7 @@ public class JFrameCadastrarCurso extends javax.swing.JFrame {
                 .addComponent(jInternalFrame2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanelSecundario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(321, Short.MAX_VALUE))
+                .addContainerGap(370, Short.MAX_VALUE))
         );
 
         pack();
@@ -299,7 +275,9 @@ public class JFrameCadastrarCurso extends javax.swing.JFrame {
         controllerInstituicaoEnsino.setControllerCurso(controllerCurso);
         controllerInstituicaoEnsino.getInstituicaoEnsinoDAO().setTipo((String) jComboBoxTIpoCurso.getSelectedItem());
         controllerInstituicaoEnsino.incluir(this);
-        
+        jPanelSecundario.setVisible(false);
+        jTextFieldNomeInstituicao.setText(controllerInstituicaoEnsino.getInstituicaoEnsino().getNome());
+        jButtonCadastrarCurso.setVisible(true);
     }//GEN-LAST:event_jButtonNovaInstituicaoActionPerformed
 
     private void jComboBoxTIpoCursoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboBoxTIpoCursoMouseClicked
@@ -326,25 +304,6 @@ public class JFrameCadastrarCurso extends javax.swing.JFrame {
             jLabelErro1.setVisible(false);
         }
     }//GEN-LAST:event_jComboBoxTIpoCursoActionPerformed
-
-    private void jButtonCadastrarCursoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastrarCursoActionPerformed
-        controllerCurso.getCurso().setIdInstituicaoEnsino(controllerInstituicaoEnsino.getInstituicaoEnsino().getId());
-        controllerCurso.getCurso().setNome(jTextFieldNome.getText());
-        controllerCurso.getCurso().setTipo((String)jComboBoxTIpoCurso.getSelectedItem());
-        controllerCurso.persistir(this);
-    }//GEN-LAST:event_jButtonCadastrarCursoActionPerformed
-
-    private void jTableInsituicaoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableInsituicaoMouseClicked
-        controllerInstituicaoEnsino.getInstituicaoEnsino().setNome((String) jTableInsituicao.getValueAt(jTableInsituicao.getSelectedRow(), 0));
-        controllerInstituicaoEnsino.getInstituicaoEnsinoDAO().setTipo((String)jComboBoxTIpoCurso.getSelectedItem());
-        controllerInstituicaoEnsino.setControllerCurso(controllerCurso);
-        controllerInstituicaoEnsino.selecionarAlterar(this);
-    }//GEN-LAST:event_jTableInsituicaoMouseClicked
-
-    private void jButtonVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVoltarActionPerformed
-        controllerCurso.setControllerInstituicaoEnsino(controllerInstituicaoEnsino);
-        controllerCurso.voltar(this);
-    }//GEN-LAST:event_jButtonVoltarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -385,7 +344,6 @@ public class JFrameCadastrarCurso extends javax.swing.JFrame {
     private javax.swing.JButton jButtonCadastrarCurso;
     private javax.swing.JButton jButtonNovaInstituicao;
     private javax.swing.JButton jButtonPesquisar;
-    private javax.swing.JButton jButtonVoltar;
     private javax.swing.JComboBox<String> jComboBoxTIpoCurso;
     private javax.swing.JInternalFrame jInternalFrame1;
     private javax.swing.JInternalFrame jInternalFrame2;
@@ -420,9 +378,7 @@ public class JFrameCadastrarCurso extends javax.swing.JFrame {
         this.controllerCurso = controllerCurso;
     }
 
-    public void posCadastroIE() {
-        jPanelSecundario.setVisible(false);
-        jTextFieldNomeInstituicao.setText(controllerInstituicaoEnsino.getInstituicaoEnsino().getNome());
-        jButtonCadastrarCurso.setVisible(true);
+    public void setjTextFieldNomeInstituicao(javax.swing.JTextField jTextFieldNomeInstituicao) {
+        this.jTextFieldNomeInstituicao = jTextFieldNomeInstituicao;
     }
 }

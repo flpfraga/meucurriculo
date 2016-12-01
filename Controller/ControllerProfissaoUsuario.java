@@ -8,14 +8,11 @@ package Controller;
 import DAO.ProfissaoDAO;
 import DAO.ProfissaoUsuarioDAO;
 import Model.Profissao;
-import Model.Profissao;
-import Model.ProfissaoUsuario;
 import Model.ProfissaoUsuario;
 import View.profissao.JFrameAlterarProfissao;
 import View.profissao.JFrameCadastrarProfissao;
 import View.profissao.JFrameVisualizarProfissao;
 import java.awt.Frame;
-import java.util.ArrayList;
 
 /**
  *
@@ -47,9 +44,7 @@ public class ControllerProfissaoUsuario extends DefaultController{
         getjFrameVisualizarProfissao().setControllerProfissao(getjFrameCadastrarProfissao());
         getjFrameVisualizarProfissao().setVisible(true);
     }
-    public ArrayList busca (int indice, DefaultController defaultController){
-        return profissaoUsuarioDAO.busca(indice, defaultController);
-    }
+
     @Override
     public void persistir(Frame frame) {
         frame.setVisible(false);

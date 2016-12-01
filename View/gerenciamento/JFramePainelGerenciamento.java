@@ -10,7 +10,6 @@ import Controller.ControllerEvento;
 import Controller.ControllerGerenciamento;
 import Controller.ControllerInstituicaoEnsino;
 import Controller.ControllerProfissao;
-import Controller.ControllerSistema;
 
 /**
  *
@@ -22,7 +21,7 @@ public class JFramePainelGerenciamento extends javax.swing.JFrame {
     private ControllerInstituicaoEnsino controllerInstituicaoEnsino;
     private ControllerProfissao controllerProfissao;
     private ControllerCurso controllerCurso;
-    private ControllerSistema controllerSistema;
+
     /**
      * Creates new form JFramePainelGerenciamento
      */
@@ -40,13 +39,23 @@ public class JFramePainelGerenciamento extends javax.swing.JFrame {
     private void initComponents() {
 
         jInternalFrame1 = new javax.swing.JInternalFrame();
+        jComboBoxInstituicaoEnsino = new javax.swing.JComboBox<>();
+        jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButtonCursos = new javax.swing.JButton();
-        jButtonVoltar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jInternalFrame1.setVisible(true);
+
+        jComboBoxInstituicaoEnsino.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Médio", "Técnico","Superior","Mestrado","Doutorado","PHD" }));
+        jComboBoxInstituicaoEnsino.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxInstituicaoEnsinoActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setText("Instituição de Ensino");
 
         jButton1.setText("Profissão");
 
@@ -57,39 +66,36 @@ public class JFramePainelGerenciamento extends javax.swing.JFrame {
             }
         });
 
-        jButtonVoltar.setText("Voltar");
-        jButtonVoltar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonVoltarActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jInternalFrame1Layout = new javax.swing.GroupLayout(jInternalFrame1.getContentPane());
         jInternalFrame1.getContentPane().setLayout(jInternalFrame1Layout);
         jInternalFrame1Layout.setHorizontalGroup(
             jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jInternalFrame1Layout.createSequentialGroup()
-                .addContainerGap(96, Short.MAX_VALUE)
+                .addContainerGap()
                 .addGroup(jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jInternalFrame1Layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jInternalFrame1Layout.createSequentialGroup()
-                        .addGroup(jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButtonCursos, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(81, 81, 81))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jInternalFrame1Layout.createSequentialGroup()
-                        .addComponent(jButtonVoltar)
-                        .addGap(152, 152, 152))))
+                        .addComponent(jComboBoxInstituicaoEnsino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(36, 36, 36)
+                .addComponent(jButtonCursos)
+                .addGap(77, 77, 77)
+                .addComponent(jButton1)
+                .addGap(19, 19, 19))
         );
         jInternalFrame1Layout.setVerticalGroup(
             jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jInternalFrame1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jButtonCursos, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
-                .addComponent(jButtonVoltar)
-                .addContainerGap())
+                .addGap(9, 9, 9)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jComboBoxInstituicaoEnsino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1)
+                    .addComponent(jButtonCursos))
+                .addContainerGap(232, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -106,16 +112,45 @@ public class JFramePainelGerenciamento extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jComboBoxInstituicaoEnsinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxInstituicaoEnsinoActionPerformed
+        controllerInstituicaoEnsino = new ControllerInstituicaoEnsino();
+        controllerInstituicaoEnsino.getIntituicaoEnsino().setTipoMedio(false);
+        controllerInstituicaoEnsino.getIntituicaoEnsino().setTipoTecnico(false);
+        controllerInstituicaoEnsino.getIntituicaoEnsino().setTipoSuperior(false);
+        controllerInstituicaoEnsino.getIntituicaoEnsino().setTipoMestrado(false);
+        controllerInstituicaoEnsino.getIntituicaoEnsino().setTipoDoutorado(false);
+        controllerInstituicaoEnsino.getIntituicaoEnsino().setTipoPhd(false);
+        controllerInstituicaoEnsino.getIntituicaoEnsino().setNome("");
+        
+        if (jComboBoxInstituicaoEnsino.getSelectedItem().equals("Médio")) {
+            controllerInstituicaoEnsino.getIntituicaoEnsino().setTipoMedio(true);
+        } else if (jComboBoxInstituicaoEnsino.getSelectedItem().equals("Técnico")) {
+
+            controllerInstituicaoEnsino.getIntituicaoEnsino().setTipoTecnico(true);
+
+        } else if (jComboBoxInstituicaoEnsino.getSelectedItem().equals("Superior")) {
+
+            controllerInstituicaoEnsino.getIntituicaoEnsino().setTipoSuperior(true);
+
+        } else if (jComboBoxInstituicaoEnsino.getSelectedItem().equals("Mestrado")) {
+
+            controllerInstituicaoEnsino.getIntituicaoEnsino().setTipoMestrado(true);
+
+        } else if (jComboBoxInstituicaoEnsino.getSelectedItem().equals("Doutorado")) {
+
+            controllerInstituicaoEnsino.getIntituicaoEnsino().setTipoDoutorado(true);
+
+        } else if (jComboBoxInstituicaoEnsino.getSelectedItem().equals("PHD")) {
+
+            controllerInstituicaoEnsino.getIntituicaoEnsino().setTipoPhd(true);
+        }
+        controllerInstituicaoEnsino.mostrar(this);
+    }//GEN-LAST:event_jComboBoxInstituicaoEnsinoActionPerformed
+
     private void jButtonCursosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCursosActionPerformed
        controllerCurso = new ControllerCurso();
-       controllerCurso.setControllerGerenciamento(controllerGerenciamento);
        controllerCurso.mostrar(this);
     }//GEN-LAST:event_jButtonCursosActionPerformed
-
-    private void jButtonVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVoltarActionPerformed
-        controllerSistema = new ControllerSistema();
-        controllerSistema.iniciar(this);
-    }//GEN-LAST:event_jButtonVoltarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -155,8 +190,9 @@ public class JFramePainelGerenciamento extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonCursos;
-    private javax.swing.JButton jButtonVoltar;
+    private javax.swing.JComboBox<String> jComboBoxInstituicaoEnsino;
     private javax.swing.JInternalFrame jInternalFrame1;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 
     public void setControllerGerenciamento(ControllerGerenciamento controllerGerenciamento) {

@@ -45,10 +45,9 @@ public class JFrameVisualizarCursos extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableCurso = new javax.swing.JTable();
         jButtonBuscar = new javax.swing.JButton();
-        jButtonVoltar = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -78,11 +77,6 @@ public class JFrameVisualizarCursos extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
-        jTableCurso.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTableCursoMouseClicked(evt);
-            }
-        });
         jScrollPane1.setViewportView(jTableCurso);
 
         jButtonBuscar.setText("Buscar");
@@ -92,12 +86,7 @@ public class JFrameVisualizarCursos extends javax.swing.JFrame {
             }
         });
 
-        jButtonVoltar.setText("Voltar");
-        jButtonVoltar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonVoltarActionPerformed(evt);
-            }
-        });
+        jButton1.setText("Voltar");
 
         jLabel2.setText("Painel de Cursos");
 
@@ -107,8 +96,6 @@ public class JFrameVisualizarCursos extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-
-        jButton1.setText("Excluir");
 
         javax.swing.GroupLayout jInternalFrame1Layout = new javax.swing.GroupLayout(jInternalFrame1.getContentPane());
         jInternalFrame1.getContentPane().setLayout(jInternalFrame1Layout);
@@ -122,22 +109,20 @@ public class JFrameVisualizarCursos extends javax.swing.JFrame {
                 .addContainerGap(47, Short.MAX_VALUE)
                 .addGroup(jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jInternalFrame1Layout.createSequentialGroup()
-                        .addComponent(jButtonVoltar)
+                        .addGroup(jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 413, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jInternalFrame1Layout.createSequentialGroup()
+                                .addComponent(jTextFieldCurso, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(148, 148, 148)
+                                .addComponent(jButtonBuscar)))
+                        .addGap(24, 24, 24))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jInternalFrame1Layout.createSequentialGroup()
+                        .addComponent(jButton1)
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jInternalFrame1Layout.createSequentialGroup()
-                        .addGroup(jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(jInternalFrame1Layout.createSequentialGroup()
-                                .addComponent(jButton2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton1))
-                            .addGroup(jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel1)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 413, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(jInternalFrame1Layout.createSequentialGroup()
-                                    .addComponent(jTextFieldCurso, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(148, 148, 148)
-                                    .addComponent(jButtonBuscar))))
-                        .addGap(24, 24, 24))))
+                        .addComponent(jButton2)
+                        .addGap(185, 185, 185))))
         );
         jInternalFrame1Layout.setVerticalGroup(
             jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -152,11 +137,9 @@ public class JFrameVisualizarCursos extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(jButton1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
-                .addComponent(jButtonVoltar)
+                .addComponent(jButton2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                .addComponent(jButton1)
                 .addContainerGap())
         );
 
@@ -176,25 +159,12 @@ public class JFrameVisualizarCursos extends javax.swing.JFrame {
 
     
     private void jButtonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarActionPerformed
-        controllerCurso.getCurso().setNome(jTextFieldCurso.getText());
-        controllerCurso.getCurso().setTipo(jTextFieldCurso.getText());
         jTableCurso.setModel(controllerCurso.atualizar(this));
     }//GEN-LAST:event_jButtonBuscarActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         controllerCurso.incluir(this);
     }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void jButtonVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVoltarActionPerformed
-        controllerCurso.voltarPainelGerenciamento(this);
-    }//GEN-LAST:event_jButtonVoltarActionPerformed
-
-    private void jTableCursoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableCursoMouseClicked
-        controllerCurso.getCurso().setNome((String) jTableCurso.getValueAt(jTableCurso.getSelectedRow(), 0));
-        controllerCurso.getCurso().setTipo((String) jTableCurso.getValueAt(jTableCurso.getSelectedRow(), 1));
-        controllerCurso.getCurso().setNomeInstituicao((String) jTableCurso.getValueAt(jTableCurso.getSelectedRow(), 2));
-        controllerCurso.alterarCurso(this);
-    }//GEN-LAST:event_jTableCursoMouseClicked
 
     /**
      * @param args the command line arguments
@@ -235,7 +205,6 @@ public class JFrameVisualizarCursos extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButtonBuscar;
-    private javax.swing.JButton jButtonVoltar;
     private javax.swing.JInternalFrame jInternalFrame1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -247,8 +216,6 @@ public class JFrameVisualizarCursos extends javax.swing.JFrame {
     public void setControllerCurso (ControllerCurso controllerCurso){
         this.controllerCurso = controllerCurso;
     }
-    public void buscar(){
-        jTableCurso.setModel(controllerCurso.atualizar(this));
-    }
+
 
 }

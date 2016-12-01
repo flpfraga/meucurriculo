@@ -7,7 +7,6 @@ package DAO;
 
 import Controller.DefaultController;
 import Controller.ControllerGerenciamento;
-import Model.Endereco;
 import Model.Gerente;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -53,17 +52,8 @@ public class GerenteDAO extends DefaultDAO {
         }
         return false;
     }
-    public boolean excluir(Object object, DefaultController defaultController) {
-        gerente = (Gerente) object;
-        try {
-            ps = Persistencia.conexao().prepareStatement("DELETE FROM gerente WHERE id = ?");
-            ps.setInt(1, gerente.getId());
-            ps.execute();
-            return true;
-        } catch (SQLException e) {
-            defaultController.erroConexaoBD(e);
-        }
-        return false;
+    public void excluir(Object object, DefaultController defaultController) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
